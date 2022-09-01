@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco's tools | Transformar Texto</title>
+
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ESTE CÓDIGO ES PARA LOS TOOLTIPS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (element) {
+                return new bootstrap.Tooltip(element);
+            });
+        });
+    </script>
+
+<nav class="navbar navbar-expand-lg sticky-top p-3 navbar-dark fs-5" style="background-color: #3756ff">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold fs-4" href="/index.html">MARCO'S TOOLS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/index.html">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Texto
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/pages/text/transformar-texto.html">Transformar Texto</a></li>
+                        <li><a class="dropdown-item" href="/pages/text/archivo.html">Tipografias</a></li>
+                        <li><a class="dropdown-item" href="/pages/text/archivo.html">Convertir a Morse</a></li>
+                        <li><a class="dropdown-item" href="/pages/text/archivo.html">Convertir a Binario</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Imagenes
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/pages/images/archivo.html">.....</a></li>
+                        <li><a class="dropdown-item" href="/pages/images/archivo.html">.....</a></li>
+                        <li><a class="dropdown-item" href="/pages/images/archivo.html">.....</a></li>
+                        <li><a class="dropdown-item" href="/pages/images/archivo.html">.....</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Juegos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/pages/games/archivo.html">.....</a></li>
+                        <li><a class="dropdown-item" href="/pages/games/archivo.html">.....</a></li>
+                        <li><a class="dropdown-item" href="/pages/games/archivo.html">.....</a></li>
+                        <li><a class="dropdown-item" href="/pages/games/archivo.html">.....</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- MARGEN ABAJO -->
+    <div class="mb-3"></div>
+
+    <!-- CÓDIGO -->
+    <div class="container">
+        <div class="alert alert-primary text-center" role="alert">
+            <h4>TRANSFORMAR TEXTO</h4>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="txt_input">Ingrese su texto aquí:</label>
+
+                <button onclick="copy()" class="ms-2 btn btn-primary"><i class="uil uil-copy pe-1"></i>Copiar</button>
+                <button onclick="paste()" class="btn btn-primary"><i class="uil uil-clipboard pe-1"></i>Pegar</button>
+
+                <div class="ms-2 form-check form-switch form-check-inline" data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Copia el contenido en el portapapeles al presionar un botón.">
+                    <input class="form-check-input" type="checkbox" role="switch" id="check_copy_auto" checked>
+                    <label class="form-check-label" for="check_copy_auto">Copiar Automáticamente</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <textarea class="form-control mt-2" name="txt_input" id="txt_input" cols="30" rows="20"></textarea>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button onclick="convertir_a_mayusculas()"
+                    class="btn btn-success form-control fs-5 mb-2 p-3">MAYÚSUCULAS</button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button onclick="convertir_a_minusculas()"
+                    class="btn btn-success form-control fs-5 mb-2 p-3">minúsculas</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+
+    <script src="/js/transformar-text.js"></script>
+</body>
+</body>
+
+</html>
